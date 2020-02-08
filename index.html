@@ -18,6 +18,12 @@
   <!-- Theme CSS -->
   <link href="css/freelancer.min.css" rel="stylesheet">
 
+  <!-- Leaflet CSS -->
+  <link href="leaflet/leaflet.css">
+  <style>
+    #mapid { height: 180px; }
+  </style>
+  
 </head>
 <body id="page-top">
 
@@ -86,9 +92,9 @@
   <!-- About Section -->
   <section class="page-section">
     <div class="container">
-
+     <div id="mapid">
       <p> <font size="+2">This project, Experience Wanuskewin, will be a virtual tour of the Wanuskewin Heritage Park grounds that will be created using ArcGIS StoryMaps. It will include interest points of archaeological finds, significant landscapes, and cultural details. The descriptions of the interest points will include information that is not available elsewhere on the Heritage Park website. This project will address a need from visitors who are not physically or fiscally able to visit the park. This project is significant in two ways. First, it can be used as promotional material to highlight the significance of the park and give virtual visitors a glimpse into the landscape. Second, it can be used by educators as a tool to advance the understanding and appreciation of the evolving cultures of the Northern Plains Indigenous peoples.</font> 
-
+        
         </div>
       </section>
 
@@ -390,6 +396,20 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
+  
+  <!-- Leaflet Script -->
+      <script src="leaflet/leaflet.js"></script>
+
+      <!-- Map SCript -->
+      <script type="text/javascript">
+        var map = L.map('mapid').setView([47.669, -113.853], 5);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'jandrel/ck6cjf44i21b81io8tuqfrc12',
+    accessToken: 'pk.eyJ1IjoiamFuZHJlbCIsImEiOiJjazM3amk5cHQwMDNrM25yejJkeHRkZHI4In0.SPT0_-93CZ1AcRkVB06hSQ'
+}).addTo(map);
+      </script>
 
 </body>
 
