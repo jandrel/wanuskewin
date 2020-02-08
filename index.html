@@ -23,8 +23,62 @@
   <style>
     #mapid { height: 180px; }
   </style>
-  
+  		<style>
+			#memap {
+				height: calc(100% - 3.43056rem);
+			}
+			#key {
+				position: absolute;
+				bottom: 20px;
+				left: 11px;
+				z-index: 1000;
+				width: 22%;
+			}
+			body a {
+				color: #488C9F !important;
+			}
+			body a:hover {
+				color: #465983 !important;
+			}
+			.btn-default {
+				color: #488C9F;
+				border: 1px solid #488C9F;
+				background-color: transparent;
+			}
+			.btn-default:focus, .btn-default:hover {
+				color: black;
+				border: 1px solid #488C9F;
+				outline: none;
+				background-color: #488C9F;
+			}
+			.modal-content {
+			background-color: black;
+			color: #f2f2f2;
+			border: 0px;
+			}
+			.modal-header {
+			color: #488C9F;
+			display: block;
+			}
+			.modal-footer {
+				border-top: 0px;
+				display: -ms-flexbox;
+				display: flex;				-ms-flex-align: center;
+				align-items: center;
+				-ms-flex-pack: end;
+				justify-content: flex-end;
+				padding: 15px;
+			}
+			.modal-header .close {
+			float: right;
+			color: #f2f2f2;
+			}
+			h5.modal-header {
+			float: left;
+			}
+		</style>
 </head>
+  
 <body id="page-top">
 
   <!-- Navigation -->
@@ -89,6 +143,11 @@
     </div>
   </header>
 
+  <!-- Map Key -->
+		<img id="key" src="img/key.png" />
+
+		<!-- Map Section -->
+		<div id="memap"></div>
   <!-- About Section -->
   <section class="page-section">
     <div class="container">
@@ -397,7 +456,25 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
-  
+<!-- Custom Map Script -->
+		<script>
+			var northwest = L.latLng(5.0, -7.5),
+				southeast = L.latLng(-11.0, 16.0),
+				bounds = L.latLngBounds(northwest, southeast),
+//				keyUrl = 'img/key.png',
+//				keyLocation = [[1.56261, -17.979], [4.12572, -13.28022]],
+				memap = L.map('memap', {
+					attributionControl: false
+				}).setMaxBounds(bounds).setView([-3.1, 2.6], 7);
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+				minZoom: 6,
+				maxZoom: 10,
+				id: 'jandrel.8881niet',
+				accessToken: 'pk.eyJ1IjoiamFuZHJlbCIsImEiOiJjazM3amk5cHQwMDNrM25yejJkeHRkZHI4In0.SPT0_-93CZ1AcRkVB06hSQ'
+			}).addTo(memap);
+//			L.imageOverlay(keyUrl, keyLocation).addTo(memap);
+			var locations = L.geoJSON(geoJSON).addTo(memap);
+ 
   <!-- Leaflet Script -->
       <script src="leaflet/leaflet.js"></script>
 
