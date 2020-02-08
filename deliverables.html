@@ -24,15 +24,6 @@
     #mapid { height: 180px; }
   </style>
   
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-  
-   <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
-  
 </head>
 
 <body id="page-top">
@@ -110,15 +101,9 @@
       <p><font size="+2">
         This project will result in a subpage on the existing Heritage Park website (will be its own tab; https://wanuskewin.com/experience). The page will feature an interactive map of the 360-acre park and its trails. The page will utilize story mapping technology that includes interpretive text, images, and video.
      </font></p>
-    </div>
-   
-     <div id="mapid"></div>
-    #mapid { height: 180px; }
-    
+    </div>    
   </section>
- <section>
-     <div id="mapid"></div>
-    </section>
+
  
 
   <!-- Footer -->
@@ -424,19 +409,7 @@
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
 
-  <!-- Leaflet Script -->
-      <script src="leaflet/leaflet.js"></script>
 
-      <!-- Map SCript -->
-      <script type="text/javascript">
-        var map = L.map('mapid').setView([47.669, -113.853], 5);
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'jandrel/ck6cjf44i21b81io8tuqfrc12',
-    accessToken: 'pk.eyJ1IjoiamFuZHJlbCIsImEiOiJjazM3amk5cHQwMDNrM25yejJkeHRkZHI4In0.SPT0_-93CZ1AcRkVB06hSQ'
-}).addTo(map);
-      </script>
 
 </body>
 
